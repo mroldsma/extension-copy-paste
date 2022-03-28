@@ -1,33 +1,25 @@
-const text_textarea = document.getElementById('text')
+const text1 = document.getElementById('text1');
+const text2 = document.getElementById('text2');
+const text3 = document.getElementById('text3');
+const text4 = document.getElementById('text4');
 
-console.log(text_textarea.innerHTML)
-
-text_textarea.addEventListener('click', ()=>{
-  
-  text_textarea.select();
-  document.execCommand('copy');
-  
-  
-  
-  
-});
+text1.addEventListener('click', copyToClipBoard(this));
+text2.addEventListener('click', copyToClipBoard(this));
+text3.addEventListener('click', copyToClipBoard(this));
+text4.addEventListener('click', copyToClipBoard(this));
 
 
 
-// copyToClipBoard();todo reservado 3
-  
-  // text_p.select();
-  // document.execCommand('copy');todotodo reservado 2 reservado 1
+const popup = document.getElementById('popup');
+
+function copyToClipBoard(element){
+  element.select();
+  document.execCommand("copy");
 
 
-// function copyToClipBoard(){
 
-//   const hiddenInput = document.createElement('textarea');
-//   hiddenInput.setAttribute('readonly', '');
-//   hiddenInput.style.position = 'absolute';
-//   // hiddenInput.style.top = '-10%';
-//   hiddenInput.value = text_textarea.innerHTML;
-//   document.body.appendChild(hiddenInput);
-//   hiddenInput.select();
-//   document.execCommand('copy');
-// }
+  popup.classList.add('active');
+  setTimeout(() => {
+    popup.classList.remove('active');
+  }, 1500);
+}
